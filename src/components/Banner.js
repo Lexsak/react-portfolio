@@ -9,7 +9,7 @@ export const Banner = () => {
     const toRotate = ["Web Developer", "Web Designer", "UI/UX Designer"];
     const [text, setText] = useState('');
     const [delta, setDelta] = useState(300 - Math.random() * 100);
-    const period = 1500;
+    const period = 2000;
 
     useEffect(() => {
         let ticker = setInterval(() => {
@@ -29,7 +29,7 @@ export const Banner = () => {
         setText(updatedText);
 
         if (isDeleting) {
-            setDelta(prevDelta => prevDelta / 1.8)
+            setDelta(prevDelta => prevDelta / 2)
         }
 
         if (!isDeleting && updatedText === fullText) {
