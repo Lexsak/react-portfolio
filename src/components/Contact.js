@@ -43,7 +43,7 @@ export const Contact = () => {
     };
 
     return (
-        <selection className="contact" id="connect">
+        <section className="contact" id="connect">
             <Container>
                 <Row className="align-items-center">
                     <Col md={6}>
@@ -52,7 +52,7 @@ export const Contact = () => {
                 </Row>
                 <Col md={6}>
                     <h2>Get In Touch</h2>
-                    <form onSubmit={handleSubmit}>
+                    <form /*onSubmit={handleSubmit}*/>
                         <Row>
                             <Col sm={6} className="px-1">
                                 <input
@@ -86,7 +86,7 @@ export const Contact = () => {
                                 <button type="submit"><span>{buttonText}</span></button>
                             </Col>
                             {
-                                // status.message &&
+                                status.message &&
                                 <Col>
                                     <p className={status.success === false ? "danger" : "success"}>{status.message}</p>
                                 </Col>
@@ -95,7 +95,7 @@ export const Contact = () => {
                     </form>
                 </Col>
             </Container>
-        </selection>
+        </section>
     );
 }
 
