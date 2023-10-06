@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row, Nav } from "react-bootstrap";
 import { ArrowRightCircle } from "react-bootstrap-icons";
-import headerImg from "../assets/img/header-img.svg"
+import headerImg from "../assets/img/header-img.png"
+import 'animate.css';
+import TrackVisibility from 'react-on-screen';
 
 export const Banner = () => {
     const [loopNum, setLoopNum] = useState(0);
@@ -35,7 +37,7 @@ export const Banner = () => {
         if (!isDeleting && updatedText === fullText) {
             setIsDeleting(true);
             setDelta(period);
-        } else if (isDeleting && updatedText === ''){
+        } else if (isDeleting && updatedText === '') {
             setIsDeleting(false);
             setLoopNum(loopNum + 1);
             setDelta(500);
@@ -47,13 +49,20 @@ export const Banner = () => {
             <Container>
                 <Row className="align-items-center">
                     <Col xs={12} md={6} x={7}>
-                        <span className="tagline">Welcome to my Portfolio</span>
-                        <h1>{`Hi I'm Lorem `} <span className="wrap">{text}</span></h1>
-                        <p>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                            A recusandae eum impedit nobis animi reprehenderit consequatur, quos rem molestias veniam!
-                        </p>
-                        <button onClick={() => console.log('connect')}>Let's Connect <ArrowRightCircle size={25} /></button>
+                        <TrackVisibility>
+                            {({ isVisible }) =>
+                                <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
+                                    <span className="tagline">Welcome to my Portfolio</span>
+                                    <h1>{`Hi I'm Lorem `} <span className="wrap">{text}</span></h1>
+                                    <p>
+                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                                        A recusandae eum impedit nobis animi reprehenderit consequatur, quos rem molestias veniam!
+                                    </p>
+                                    <Nav.Link href='#connect'>
+                                        <button onClick={() => console.log('connect')}>Let's Connect <ArrowRightCircle size={25} /></button>
+                                    </Nav.Link>
+                                </div>}
+                        </TrackVisibility>
                     </Col>
                     <Col xs={12} md={6} x={5}>
                         <img src={headerImg} alt="Header Img" />
