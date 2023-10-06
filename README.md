@@ -1,3 +1,9 @@
+# How To See The Project
+
+Download the zip folder and unzip it.
+Enter the project path in the terminal, then type npm install and after that npm start.
+You should see this project in a moment.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
